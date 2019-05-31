@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import { Triple } from "react-preloading-component";
 
+import "./App.css";
+
+import StarwarsCharsList from "./components/StarwarsCharsList";
 class App extends Component {
   constructor() {
     super();
@@ -10,7 +13,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getCharacters('https://swapi.co/api/people/');
+    this.getCharacters("https://swapi.co/api/people/");
+    console.log(this.state);
   }
 
   getCharacters = URL => {
@@ -30,9 +34,17 @@ class App extends Component {
   };
 
   render() {
+    if (this.state.starwarsChars.length > 0) {
+      return (
+        <div className="App">
+          <h1 className="Header">React Wars</h1>
+          <StarwarsCharsList starwarsChars={this.state.starwarsChars} />
+        </div>
+      );
+    }
     return (
-      <div className="App">
-        <h1 className="Header">React Wars</h1>
+      <div className="preloader">
+        <Triple color="green" size={80} />
       </div>
     );
   }
