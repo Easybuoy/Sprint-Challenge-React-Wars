@@ -11,6 +11,21 @@
   padding: 1rem 0;
   margin: 1rem;
   transition: all 0.7s ease-in-out;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.8)
+    ),
+    url("../starwars.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-position: center;
+}
+
+.characters-card p {
+    font-size: 1.3rem;
+    font-family: 'Barlow Condensed', sans-serif;
 }
 
 .characters-card:hover {

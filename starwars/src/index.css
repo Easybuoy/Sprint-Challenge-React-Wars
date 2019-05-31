@@ -8,4 +8,5 @@ body {
       rgba(255, 255, 255, 0)
     ),
     url("./sw-bg.jpg");
+    font-family: 'Kalam', cursive;
 }

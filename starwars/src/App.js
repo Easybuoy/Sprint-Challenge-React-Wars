@@ -55,7 +55,7 @@ class App extends Component {
     }
     return (
       <div className="preloader">
-        <Triple color="green" size={80} />
+        <Triple color="#f26419" size={80} />
       </div>
     );
   }

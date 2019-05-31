@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function StarwarsChars({ character }) { 
-    // console.log(character)
+
   return (
     <>
       <div className="characters-card">
