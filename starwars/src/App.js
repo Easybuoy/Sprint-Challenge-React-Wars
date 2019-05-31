@@ -8,13 +8,14 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      starwarsChars: []
+      starwarsChars: [],
+      next: "",
+      previous: ""
     };
   }
 
   componentDidMount() {
     this.getCharacters("https://swapi.co/api/people/");
-    console.log(this.state);
   }
 
   getCharacters = URL => {
@@ -26,7 +27,12 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
-        this.setState({ starwarsChars: data.results });
+        console.log(data);
+        this.setState({
+          starwarsChars: data.results,
+          next: data.next,
+          previous: data.previous
+        });
       })
       .catch(err => {
         throw new Error(err);
@@ -38,7 +44,12 @@ class App extends Component {
       return (
         <div className="App">
           <h1 className="Header">React Wars</h1>
-          <StarwarsCharsList starwarsChars={this.state.starwarsChars} />
+          <StarwarsCharsList
+            starwarsChars={this.state.starwarsChars}
+            previous={this.state.previous}
+            next={this.state.next}
+            getCharacters={this.getCharacters}
+          />
         </div>
       );
     }
