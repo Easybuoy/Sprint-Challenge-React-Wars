@@ -3,8 +3,12 @@ import "./Buttons.css";
 
 export default function Button({ previous, next, getCharacters }) {
   let style = {};
+  let nextStyle = {};
   if (previous === null) {
     style = { opacity: "0" };
+  }
+  if (next === null) {
+    nextStyle = { opacity: "0" };
   }
   return (
     <div className="pagination-buttons">
@@ -18,6 +22,7 @@ export default function Button({ previous, next, getCharacters }) {
         Previous
       </button>
       <button
+        style={nextStyle}
         onClick={() => {
           getCharacters(next);
         }}
