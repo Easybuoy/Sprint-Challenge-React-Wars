@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import { Triple } from "react-preloading-component";
-
+import { toast } from "react-toastify";
 import "./App.css";
-
+import "react-toastify/dist/ReactToastify.css";
 import StarwarsCharsList from "./components/StarwarsCharsList";
+
+toast.configure();
 class App extends Component {
   constructor() {
     super();
     this.state = {
       starwarsChars: [],
+      error: false,
       next: "",
       previous: ""
     };
@@ -35,7 +38,7 @@ class App extends Component {
         });
       })
       .catch(err => {
-        throw new Error(err);
+        this.setState({ error: true });
       });
   };
 
@@ -52,6 +55,10 @@ class App extends Component {
           />
         </div>
       );
+    }
+    console.log(this.state.error);
+    if (this.state.error === true) {
+      return toast.error("Error Loading Characters.");
     }
     return (
       <div className="preloader">
