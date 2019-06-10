@@ -1,0 +1,36 @@
+.characters {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.characters-card {
+  width: 30%;
+  background-color: white;
+  padding: 1rem 0;
+  margin: 1rem;
+  transition: all 0.7s ease-in-out;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.8)
+    ),
+    url("../starwars.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-position: center;
+}
+
+.characters-card p {
+    font-size: 1.3rem;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.characters-card:hover {
+  transform: scale(1.05);
+  -webkit-box-shadow: 0px 2px 11px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 11px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 11px -2px rgba(0, 0, 0, 0.75);
+}
